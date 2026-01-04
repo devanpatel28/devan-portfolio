@@ -7,6 +7,7 @@ import { Icon } from "@iconify/react";
 import { Tooltip } from "@heroui/tooltip";
 import { replaceTokensWithLinks } from "@/utils/replaceTokensWithLinks";
 import ShowAll from "@/components/show-all";
+import { Divider } from "@heroui/divider";
 
 export default function Home() {
   return (
@@ -18,14 +19,14 @@ export default function Home() {
               <div className="text-5xl font-medium">
                 {personal_info.first_name + " " + personal_info.last_name}
               </div>
-              <div className="text-base font-light mt-2 text-secondary-foreground">
+              <div className="text-base ml-2 font-light mt-2 text-secondary-foreground">
                 {personal_info.occupation} at{" "}
                 <Linker href={personal_info.current_company_url}>
                   {" "}
                   {personal_info.current_company}
                 </Linker>
               </div>
-              <div className="text-base font-light text-secondary-foreground">
+              <div className="text-base ml-2 font-light text-secondary-foreground">
                 {personal_info.degree}
               </div>
 
@@ -65,7 +66,7 @@ export default function Home() {
 
       <section id="about" className="mt-8">
         <AnimReveal>
-          <h2 className="text-2xl font-semibold mb-4">About</h2>
+          <h2 className="text-2xl font-semibold mb-4">About </h2>
           {personal_info.about.map((item, index) => (
             <p
               key={index}

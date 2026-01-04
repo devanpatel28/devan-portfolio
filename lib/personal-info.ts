@@ -12,6 +12,13 @@ type LatestUpdateItem = {
   description: string;
   tokens?: TokenMap;
 };
+type SocialLinkesItem = {
+  name: string;
+  icon: string;
+  url: string;
+  openInNew?: boolean | false;
+};
+
 export const personal_info: {
   first_name: string;
   last_name: string;
@@ -20,11 +27,7 @@ export const personal_info: {
   occupation: string;
   current_company: string;
   current_company_url: string;
-  social_links: {
-    name: string;
-    icon: string;
-    url: string;
-  }[];
+  social_links: SocialLinkesItem[];
   about: AboutItem[];
   latest_updated: LatestUpdateItem[];
 } = {
@@ -52,10 +55,15 @@ export const personal_info: {
       url: "https://www.threads.com/@devan.patel.28",
     },
     {
-      name: "Mail",
-      icon: icons.mail,
-      url: "mailto:devanbhensdadiya123@gmail.com",
+      name: "Resume",
+      icon: icons.resume,
+      url: "/resume.pdf",
     },
+    // {
+    //   name: "Mail",
+    //   icon: icons.mail,
+    //   url: "mailto:devanbhensdadiya123@gmail.com",
+    // },
   ],
   // Use Brackets [[ ]] for bold text
   about: [
