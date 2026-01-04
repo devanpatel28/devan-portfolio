@@ -1,13 +1,16 @@
 import { Card, CardHeader, CardBody, CardFooter } from "@heroui/card";
 import AnimReveal from "@/components/anim-reveal";
 import { personal_info } from "@/lib/personal-info";
-import Image from "next/image";
 import Linker from "@/components/link";
 import { Icon } from "@iconify/react";
-import { Tooltip } from "@heroui/tooltip";
+import { Image } from "@heroui/image";
 import { replaceTokensWithLinks } from "@/utils/replaceTokensWithLinks";
 import ShowAll from "@/components/show-all";
 import { Divider } from "@heroui/divider";
+import CustomHeader from "@/components/custom-header";
+import { project_info } from "@/lib/projects-info";
+import { Chip } from "@heroui/chip";
+import { Button } from "@heroui/button";
 
 export default function Home() {
   return (
@@ -64,7 +67,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="mt-8">
+      <section id="about" className="mt-10">
         <AnimReveal>
           <h2 className="text-2xl font-semibold mb-4">About </h2>
           {personal_info.about.map((item, index) => (
@@ -102,6 +105,58 @@ export default function Home() {
             </div>
           ))}
         </ShowAll>
+      </section>
+      <section className="mt-10">
+        <CustomHeader
+          badgeTitle="Selected Project"
+          title="Check out my latest work"
+          className="mb-10 mt-16"
+        />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
+          {project_info.map((item, index) => (
+            <Card key={index} className="border border-default-100 rounded-xl">
+              <CardBody className="p-0 rounded-lg overflow-hidden">
+                <Image
+                  alt={item.project_image}
+                  className="w-full object-cover aspect-[3/2] hover:scale-102 transition-transform duration-300"
+                  src={item.project_image}
+                  radius="md"
+                />
+              </CardBody>
+
+              <CardFooter className="flex flex-col items-start p-2">
+                <p className="text-base font-bold text-white">
+                  {item.project_name}
+                </p>
+
+                <p className="text-xs font-light text-white mt-1.5">{item.time}</p>
+                <p className="text-xs font-light text-secondary-foreground mt-1.5">
+                  {item.description}
+                </p>
+
+                {/* LINKS */}
+                <div className="flex gap-2 mt-4">
+                  {item.links?.map((link, idx) => (
+                    <Chip
+                      key={idx}
+                      as="a"
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      classNames={{
+                        base: "cursor-pointer bg-white text-black rounded-lg",
+                        content:"flex flex-row items-center gap-1 p-0 px-1",
+                      }}
+                    >
+                      <Icon icon={link.icon} className="text-sm" />
+                      <span className="text-xs">{link.name}</span>
+                    </Chip>
+                  ))}
+                </div>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
       </section>
     </>
   );

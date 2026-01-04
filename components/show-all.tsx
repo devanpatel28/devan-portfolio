@@ -5,6 +5,7 @@ import { Button } from "@heroui/button";
 import { Icon } from "@iconify/react";
 import { useState, ReactNode } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { Chip } from "@heroui/chip";
 
 interface ShowAllProps {
   initialCount?: number;
@@ -54,14 +55,16 @@ export default function ShowAll({
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25 }}
           >
-            <Button
-              onPress={() => setShowAll(true)}
-              variant="solid"
-              className="text-sm bg-default-50 text-white hover:bg-default-100 border-1 border-default-100 rounded-lg flex items-center gap-1"
+            <Chip
+              onClick={() => setShowAll(true)}
+              classNames={{
+                content: "text-base flex items-center gap-2 cursor-pointer",
+                base: "bg-default-50 text-white hover:bg-default-100 border border-default-100 rounded-md"
+              }}
             >
               <Icon icon={icons.chevronDown} className="text-base" />
               Show All
-            </Button>
+            </Chip>
           </motion.div>
         )}
       </AnimatePresence>
