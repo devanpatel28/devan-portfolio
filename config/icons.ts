@@ -9,5 +9,22 @@ export const icons = {
     github:"mdi:github",
     thread:"mingcute:threads-line",
     mail:"fluent:mail-28-regular",
-    chevronDown:"mdi:chevron-down"
+    chevronDown:"mdi:chevron-down",
+}
+export const skills_icons = {
+    reactjs:"devicon:react",
+    nodejs:"devicon:nodejs",
+    nextjs:"devicon:nextjs",
+    tailwind:"devicon:tailwindcss",
+    java:"devicon:java",
+    expressjs:"devicon:express",
+    php:"devicon:php",
+    mysql:"devicon:mysql",
+    postgresql:"devicon:postgresql",
+    firebase:"devicon:firebase",
+    flutter:"devicon:flutter",
+    supabase:"devicon:supabase",
+    python:"devicon:python",
+    git:"devicon:git",
+    github:"devicon:github",
 }

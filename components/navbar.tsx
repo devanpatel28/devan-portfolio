@@ -12,8 +12,7 @@ export const Navbar = () => {
     { icon: icons.contact, link: "/contact", tooltip: "Contact" },
   ];
 
-  const iconClass =
-    "w-12 h-8 p-1 rounded-xl hover:w-20 transition-all duration-300 hover:scale-110 cursor-pointer";
+  const iconClass ="w-12 h-8 p-1 rounded-xl hover:w-20 transition-all duration-300 hover:scale-110 cursor-pointer";
 
   return (
     <div className="sticky top-2 z-50 flex justify-center">

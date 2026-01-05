@@ -1,4 +1,4 @@
-import { icons } from "@/config/icons";
+import { icons, skills_icons } from "@/config/icons";
 import { TokenMap } from "@/utils/replaceTokensWithLinks";
 
 type AboutItem = {
@@ -18,6 +18,10 @@ type SocialLinkesItem = {
   url: string;
   openInNew?: boolean | false;
 };
+type SkillItem = {
+  name: string;
+  icon: string;
+}
 
 export const personal_info: {
   first_name: string;
@@ -30,6 +34,7 @@ export const personal_info: {
   social_links: SocialLinkesItem[];
   about: AboutItem[];
   latest_updated: LatestUpdateItem[];
+  skills: SkillItem[];
 } = {
   first_name: "Devan",
   last_name: "Bhensdadiya",
@@ -59,11 +64,7 @@ export const personal_info: {
       icon: icons.resume,
       url: "/resume.pdf",
     },
-    // {
-    //   name: "Mail",
-    //   icon: icons.mail,
-    //   url: "mailto:devanbhensdadiya123@gmail.com",
-    // },
+  
   ],
   // Use Brackets [[ ]] for bold text
   about: [
@@ -189,4 +190,66 @@ export const personal_info: {
       }
     },
   ],
+  skills:[
+    {
+      name:"React.js",
+      icon:skills_icons.reactjs
+    },
+    {
+      name:"Next.js",
+      icon:skills_icons.nextjs
+    },
+    {
+      name:"Node.js",
+      icon:skills_icons.nodejs
+    },
+    {
+      name:"Express.js",
+      icon:skills_icons.expressjs
+    },
+    {
+      name:"PHP",
+      icon:skills_icons.php
+    },
+    {
+      name:"MySQL",
+      icon:skills_icons.mysql
+    },
+    {
+      name:"PostgreSQL",
+      icon:skills_icons.postgresql
+    },
+    {
+      name:"Firebase",
+      icon:skills_icons.firebase
+    },
+    {
+      name:"Flutter",
+      icon:skills_icons.flutter
+    },
+    {
+      name:"Java",
+      icon:skills_icons.java
+    },
+    {
+      name:"Tailwind CSS",
+      icon:skills_icons.tailwind
+    },
+    {
+      name:"Supabase",
+      icon:skills_icons.supabase
+    },
+    {
+      name:"Python",
+      icon:skills_icons.python
+    },
+     {
+      name:"Git",
+      icon:skills_icons.git
+    },
+    {
+      name:"GitHub",
+      icon:skills_icons.github
+    },
+  ]
 };
