@@ -42,7 +42,7 @@ export default function ShowAll({
       {/* 🔹 BUTTON (OUTSIDE GRID) */}
       {!showAll && children.length > initialCount && (
         <motion.div
-          className="col-span-full flex justify-center mt-6"
+          className="col-span-full flex justify-center mt-2"
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.25 }}

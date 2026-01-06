@@ -16,7 +16,7 @@ import { Divider } from "@heroui/divider";
 export default function Home() {
   return (
     <>
-      <section className="flex flex-col items-center gap-4 py-4 ">
+      <section id="hero" className="flex flex-col items-center gap-4 mt-20">
         <div className="flex w-full max-w-3xl items-center justify-between gap-4">
           <div>
             <AnimReveal className="flex flex-col">
@@ -82,7 +82,7 @@ export default function Home() {
         </AnimReveal>
       </section>
 
-      {/* <section id="latest-updates" className="mt-10">
+      <section id="latest-updates" className="mt-10">
         <h2 className="text-2xl font-semibold mb-4">Latest Updates</h2>
 
         <ShowAll>
@@ -106,7 +106,7 @@ export default function Home() {
             </div>
           ))}
         </ShowAll>
-      </section> */}
+      </section>
 
       <section id="projects" className="mt-10">
         <CustomHeader
@@ -121,16 +121,16 @@ export default function Home() {
                 key={index}
                 className="border border-default-100 rounded-xl"
               >
-                <CardBody className="p-0 rounded-lg overflow-hidden">
+                <div className="w-full aspect-[3/2] overflow-hidden rounded-lg">
                   <Image
-                    alt={item.project_image}
-                    className="w-full object-cover aspect-[3/2] hover:scale-102 transition-transform duration-300"
                     src={item.project_image}
-                    radius="md"
+                    alt={item.project_name}
+                    className="w-full h-full object-cover hover:scale-102 transition-transform duration-200 object-top"
+                    removeWrapper
                   />
-                </CardBody>
+                </div>
 
-                <CardFooter className="flex flex-col items-start p-2">
+                <CardBody className="flex flex-col items-start p-2">
                   <p className="text-base font-bold text-white">
                     {item.project_name}
                   </p>
@@ -141,7 +141,8 @@ export default function Home() {
                   <p className="text-xs font-light text-secondary-foreground mt-1.5">
                     {item.description}
                   </p>
-                  <div className="flex gap-2 mt-4">
+          
+                  <div className="flex gap-2 mt-2">
                     {item.links?.map((link, idx) => (
                       <Chip
                         key={idx}
@@ -150,7 +151,7 @@ export default function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                         classNames={{
-                          base: "cursor-pointer rounded-lg",
+                          base: "cursor-pointer bg-white text-black rounded-lg",
                           content: "flex flex-row items-center gap-1 p-0 px-1",
                         }}
                       >
@@ -159,7 +160,8 @@ export default function Home() {
                       </Chip>
                     ))}
                   </div>
-                </CardFooter>
+                  
+                </CardBody>
               </Card>
             ))}
           </ShowAll>
@@ -173,52 +175,59 @@ export default function Home() {
           className="mb-10 mt-16"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <ShowAll initialCount={3}>
-            {project_info.map((item, index) => (
+            {personal_info.achievements.map((item, index) => (
               <Card
                 key={index}
-                className="border border-default-100 rounded-xl"
+                className="border border-default-100 rounded-xl flex flex-col overflow-hidden"
               >
-                <CardBody className="p-0 rounded-lg overflow-hidden">
+                <div className="w-full aspect-[3/2] overflow-hidden rounded-lg">
                   <Image
-                    alt={item.project_image}
-                    className="w-full object-cover aspect-[3/2] hover:scale-102 transition-transform duration-300"
-                    src={item.project_image}
-                    radius="md"
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover hover:scale-102 transition-transform duration-200 object-top"
+                    radius="none"
+                    removeWrapper
                   />
-                </CardBody>
+                </div>
 
-                <CardFooter className="flex flex-col items-start p-2">
-                  <p className="text-base font-bold text-white">
-                    {item.project_name}
-                  </p>
+                {/* Content */}
+                <CardBody className="flex flex-col items-start p-3 flex-grow">
+                  <p className="text-base font-bold text-white">{item.title}</p>
 
                   <p className="text-xs font-light text-white mt-1.5">
-                    {item.time}
+                    {item.date}
                   </p>
-                  <p className="text-xs font-light text-secondary-foreground mt-1.5">
+
+                  <p className="text-xs font-light text-secondary-foreground mt-1.5 flex-grow">
                     {item.description}
                   </p>
-                  <div className="flex gap-2 mt-4">
-                    {item.links?.map((link, idx) => (
+
+                  <div className="flex gap-2 mt-4 flex-wrap">
+                    {item.place?.map((place, idx) => (
                       <Chip
                         key={idx}
                         as="a"
-                        href={link.url}
+                        href={place.url}
                         target="_blank"
                         rel="noopener noreferrer"
                         classNames={{
-                          base: "cursor-pointer rounded-lg",
-                          content: "flex flex-row items-center gap-1 p-0 px-1",
+                          base: "cursor-pointer bg-white text-black rounded-lg",
+                          content: "flex items-center  gap-1 px-2 py-1",
                         }}
                       >
-                        <Icon icon={link.icon} className="text-sm" />
-                        <span className="text-xs">{link.name}</span>
+                        <Image
+                          src={place.icon}
+                          alt={place.place}
+                          className="w-4 h-4"
+                          radius="none"
+                        />
+                        <span className="text-xs">{place.place}</span>
                       </Chip>
                     ))}
                   </div>
-                </CardFooter>
+                </CardBody>
               </Card>
             ))}
           </ShowAll>
@@ -233,11 +242,11 @@ export default function Home() {
               <Chip
                 key={index}
                 classNames={{
-                  base: "cursor-pointer transition-colors rounded-lg",
+                  base: "cursor-pointer bg-white text-black text-sm transition-colors rounded-lg ",
                   content: "flex flex-row items-center gap-1 p-0 px-1",
                 }}
               >
-                <Icon icon={item.icon} className="text-sm" />
+                <Icon icon={item.icon} className="text-base" />
                 {item.name}
               </Chip>
             ))}

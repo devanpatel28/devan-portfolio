@@ -2,10 +2,7 @@ import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import { Link } from "@heroui/link";
 import clsx from "clsx";
-
 import { Providers } from "./providers";
-
-import { siteConfig } from "@/config/site";
 import { fontGabarito, fontLexend } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
@@ -13,9 +10,9 @@ import { Footer } from "@/components/footer";
 export const metadata: Metadata = {
   title: {
     default: "Devan Portfolio | Home",
-    template: `%s - ${siteConfig.name}`,
+    template: `%s - Devan Portfolio`,
   },
-  description: siteConfig.description,
+  description: "Devan Portfolio",
   icons: {
     icon: "/favicon.ico",
   },
@@ -47,7 +44,7 @@ export default function RootLayout({
           <div className="relative flex flex-col min-h-screen">
             <Navbar />
 
-            <main className="max-w-5xl my-5 w-full mx-auto pt-24 px-6 flex-grow">
+            <main className="max-w-5xl my-5 w-full mx-auto  px-6 flex-grow">
               {children}
             </main>
             {/* <Footer/> */}

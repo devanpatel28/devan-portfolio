@@ -312,17 +312,27 @@ export const personal_info: {
   achievements: [
     {
       title: "Finalist, Code Gennie Hackathon",
-      image: "/achievements/codegennie-finalist.jpg",
-      description: "Reached finalist stage at Tark Technologies hackathon.",
+      image: "/achievements/tark.png",
+      description: "Reached finalist stage at Code Gennie hackathon by Tark Technologies.",
       place: [{ icon: "/achievements/icons/tark.png", place: "Tark Technologies", url: "https://www.tarktech.com" }],
-      date: "February 2023",
+      date: "February 2024",
     },
     {
       title: "Finalist, Intellify Hackathon",
-      image: "/achievements/intellify-finalist.jpg",
-      description: "Reached finalist stage at Intellify hackathon.",
-      place: [{ icon: "/achievements/icons/intellify.png", place: "", url: "https://www.intellify.in" }],
-      date: "February 2023",
+      image: "/achievements/intellify.png",
+      description: "Reached finalist stage at Intellify hackathon by Marwadi University.",
+      place: [{ icon: "/achievements/icons/mu.png", place: "Intellify MU", url: "https://www.intellify.marwadiuniversity.ac.in/" }],
+      date: "April 2023",
+    },
+    {
+      title: "Intellectual Property Rights",
+      image: "/achievements/ipr.png",
+      description: "Copyrighted project “Colorograph”, an Android game based on graph coloring algorithms.",
+      place: [
+        { icon: "/achievements/icons/mu.png", place: "MUIR", url: "https://www.marwadiuniversity.ac.in/muiir/" },
+        { icon: "/achievements/icons/gov-ind.png", place: "IP India", url: "/documents/colorograph-ipr.pdf" }
+      ],
+      date: "March 2023",
     },
   ],
 };
