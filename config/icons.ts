@@ -10,6 +10,9 @@ export const icons = {
     thread:"mingcute:threads-line",
     mail:"fluent:mail-28-regular",
     chevronDown:"mdi:chevron-down",
+    chevronUp:"mdi:chevron-up",
+    chevronLeft:"mdi:chevron-left",
+    chevronRight:"mdi:chevron-right",
 }
 export const skills_icons = {
     reactjs:"devicon:react",

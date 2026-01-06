@@ -21,7 +21,34 @@ type SocialLinkesItem = {
 type SkillItem = {
   name: string;
   icon: string;
-}
+};
+type EducationItem = {
+  institution_logo: string;
+  institution_name: string;
+  institution_web: string;
+  course: string;
+  time: string;
+};
+type WorkExperienceItem = {
+  company_logo: string;
+  company_name: string;
+  company_web: string;
+  position: string;
+  location: string;
+  time: string;
+};
+type AchievementPlace = {
+  icon: string;
+  place: string;
+  url?: string;
+};
+type AchievementsItem = {
+  title: string;
+  image: string;
+  description: string;
+  place: AchievementPlace[];
+  date: string;
+};
 
 export const personal_info: {
   first_name: string;
@@ -35,6 +62,9 @@ export const personal_info: {
   about: AboutItem[];
   latest_updated: LatestUpdateItem[];
   skills: SkillItem[];
+  education: EducationItem[];
+  work_experience: WorkExperienceItem[];
+  achievements: AchievementsItem[];
 } = {
   first_name: "Devan",
   last_name: "Bhensdadiya",
@@ -62,11 +92,9 @@ export const personal_info: {
     {
       name: "Resume",
       icon: icons.resume,
-      url: "/resume.pdf",
+      url: "/documents/resume.pdf",
     },
-  
   ],
-  // Use Brackets [[ ]] for bold text
   about: [
     {
       text: "Hi, I'm [[Devan Bhensdadiya]] 👋, a [[Full-Stack Developer]] specializing in [[MERN stack]], [[Next.js]], and [[Flutter]], with strong experience in building scalable web and mobile applications. I focus on creating clean, efficient, and production-ready solutions that bridge backend systems with modern user interfaces.",
@@ -100,12 +128,12 @@ export const personal_info: {
       title: "Full-Stack Developer at {{CODEGRIN}}",
       description:
         "🚀 Actively working on production-grade MERN and Next.js applications with REST APIs, authentication, and database integrations.",
-      tokens:{
-        CODEGRIN:{
+      tokens: {
+        CODEGRIN: {
           label: "Codegrin Technologies",
           url: "https://www.codegrin.com",
-        }
-      }
+        },
+      },
     },
     {
       date: "2025.07",
@@ -122,25 +150,26 @@ export const personal_info: {
         DELLOITTE: {
           label: "Deloitte Australia",
           url: "https://www.deloitte.com/au/en.html",
-        }
-      }
+        },
+      },
     },
     {
       date: "2025.05",
       title: "Graduated from {{MU}}",
       description:
         "🎓 Successfully completed B.Tech in Information and Communication Technology with strong academic and practical experience.",
-        tokens: {
+      tokens: {
         MU: {
           label: "Marwadi University",
           url: "https://www.marwadiuniversity.ac.in",
-        }
-      }
+        },
+      },
     },
     {
       date: "2025.03",
       title: "Worked on ICT Portal - ERP System",
-      description: "📱 Worked on role-based modules using Flutter, PHP, and MySQL.",
+      description:
+        "📱 Worked on role-based modules using Flutter, PHP, and MySQL.",
     },
     {
       date: "2024.06",
@@ -150,9 +179,9 @@ export const personal_info: {
       tokens: {
         AWS: {
           label: "AWS Academy",
-          url: "https://aws.amazon.com/education/awseducate/"
-        }
-      }
+          url: "https://aws.amazon.com/education/awseducate/",
+        },
+      },
     },
     {
       date: "2024.05",
@@ -175,8 +204,8 @@ export const personal_info: {
         MU: {
           label: "Marwadi University",
           url: "https://www.marwadiuniversity.ac.in",
-        }
-      }
+        },
+      },
     },
     {
       date: "2023.02",
@@ -186,70 +215,114 @@ export const personal_info: {
         TARK: {
           label: "Tark Technologies",
           url: "https://www.tarktech.com",
-        }
-      }
+        },
+      },
     },
   ],
-  skills:[
+  skills: [
     {
-      name:"React.js",
-      icon:skills_icons.reactjs
-    },
-    {
-      name:"Next.js",
-      icon:skills_icons.nextjs
+      name: "React.js",
+      icon: skills_icons.reactjs,
     },
     {
-      name:"Node.js",
-      icon:skills_icons.nodejs
+      name: "Next.js",
+      icon: skills_icons.nextjs,
     },
     {
-      name:"Express.js",
-      icon:skills_icons.expressjs
+      name: "Node.js",
+      icon: skills_icons.nodejs,
     },
     {
-      name:"PHP",
-      icon:skills_icons.php
+      name: "Express.js",
+      icon: skills_icons.expressjs,
     },
     {
-      name:"MySQL",
-      icon:skills_icons.mysql
+      name: "PHP",
+      icon: skills_icons.php,
     },
     {
-      name:"PostgreSQL",
-      icon:skills_icons.postgresql
+      name: "MySQL",
+      icon: skills_icons.mysql,
     },
     {
-      name:"Firebase",
-      icon:skills_icons.firebase
+      name: "PostgreSQL",
+      icon: skills_icons.postgresql,
     },
     {
-      name:"Flutter",
-      icon:skills_icons.flutter
+      name: "Firebase",
+      icon: skills_icons.firebase,
     },
     {
-      name:"Java",
-      icon:skills_icons.java
+      name: "Flutter",
+      icon: skills_icons.flutter,
     },
     {
-      name:"Tailwind CSS",
-      icon:skills_icons.tailwind
+      name: "Java",
+      icon: skills_icons.java,
     },
     {
-      name:"Supabase",
-      icon:skills_icons.supabase
+      name: "Tailwind CSS",
+      icon: skills_icons.tailwind,
     },
     {
-      name:"Python",
-      icon:skills_icons.python
-    },
-     {
-      name:"Git",
-      icon:skills_icons.git
+      name: "Supabase",
+      icon: skills_icons.supabase,
     },
     {
-      name:"GitHub",
-      icon:skills_icons.github
+      name: "Python",
+      icon: skills_icons.python,
     },
-  ]
+    {
+      name: "Git",
+      icon: skills_icons.git,
+    },
+    {
+      name: "GitHub",
+      icon: skills_icons.github,
+    },
+  ],
+  education: [
+    {
+      institution_logo: "/education/marwadi-university.png",
+      institution_name: "Marwadi University",
+      institution_web: "https://www.marwadiuniversity.ac.in",
+      course:
+        "Bachelor of Technology in Information & Communication Technology",
+      time: "2021 - 2025",
+    },
+    {
+      institution_logo: "/education/modi-school.png",
+      institution_name: "P.V Modi High School",
+      institution_web: "https://modischools.edu.in/",
+      course: "Higher Secondary Education",
+      time: "2019 - 2021",
+    },
+  ],
+  work_experience: [
+    {
+      company_logo: "/work/codegrin.png",
+      company_name: "Codegrin Technologies",
+      company_web: "https://www.codegrin.com",
+      position: "Full Stack Developer",
+      location: "Rajkot, Gujarat",
+      time: "Aug 2025 - [[Present]]",
+    },
+  ],
+
+  achievements: [
+    {
+      title: "Finalist, Code Gennie Hackathon",
+      image: "/achievements/codegennie-finalist.jpg",
+      description: "Reached finalist stage at Tark Technologies hackathon.",
+      place: [{ icon: "/achievements/icons/tark.png", place: "Tark Technologies", url: "https://www.tarktech.com" }],
+      date: "February 2023",
+    },
+    {
+      title: "Finalist, Intellify Hackathon",
+      image: "/achievements/intellify-finalist.jpg",
+      description: "Reached finalist stage at Intellify hackathon.",
+      place: [{ icon: "/achievements/icons/intellify.png", place: "", url: "https://www.intellify.in" }],
+      date: "February 2023",
+    },
+  ],
 };

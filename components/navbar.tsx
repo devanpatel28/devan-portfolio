@@ -8,7 +8,7 @@ export const Navbar = () => {
   const options = [
     { icon: icons.home, link: "/", tooltip: "Home" },
     { icon: icons.blog, link: "/blog", tooltip: "Blog" },
-    { icon: icons.resume, link: "/resume.pdf", tooltip: "Resume" },
+    { icon: icons.resume, link: "/documents/resume.pdf", tooltip: "Resume" },
     { icon: icons.contact, link: "/contact", tooltip: "Contact" },
   ];
 
