@@ -83,6 +83,7 @@ export default function Home() {
       </section>
 
       <section id="latest-updates" className="mt-10">
+        <AnimReveal>
         <h2 className="text-2xl font-semibold mb-4">Latest Updates</h2>
 
         <ShowAll>
@@ -106,6 +107,113 @@ export default function Home() {
             </div>
           ))}
         </ShowAll>
+      </AnimReveal>
+      </section>
+
+       <section id="skills" className="mt-20">
+        <AnimReveal>
+          <h2 className="text-2xl font-semibold mb-4">Skills </h2>
+          <div className="flex flex-wrap gap-2">
+            {personal_info.skills.map((item, index) => (
+              <Chip
+                key={index}
+                classNames={{
+                  base: "cursor-pointer bg-white text-black text-sm transition-colors rounded-lg ",
+                  content: "flex flex-row items-center gap-1 p-0 px-1",
+                }}
+              >
+                <Icon icon={item.icon} className="text-base" />
+                {item.name}
+              </Chip>
+            ))}
+          </div>
+        </AnimReveal>
+      </section>
+
+      <section id="education" className="mt-10">
+        <AnimReveal>
+          <h2 className="text-2xl font-semibold mb-4">Education </h2>
+          <div className="flex flex-col">
+            {personal_info.education.map((item, index) => (
+              <a
+                key={index}
+                href={item.institution_web}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex p-3 justify-between hover:bg-default-50 rounded-lg cursor-pointer group"
+              >
+                <div className="flex gap-3">
+                  <Avatar src={item.institution_logo} size="md" />
+                  <div>
+                    <p className="text-sm font-medium flex">
+                      {item.institution_name}
+                      <Icon
+                        icon={icons.chevronRight}
+                        className="text-xl opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-out"
+                      />
+                    </p>
+                    <p className="text-xs mt-1 text-secondary-foreground">
+                      {item.course}
+                    </p>
+                    <p className="text-xs mt-1 text-secondary-foreground"></p>
+                  </div>
+                </div>
+                <p className="text-sm text-secondary-foreground">{item.time}</p>
+              </a>
+            ))}
+          </div>
+        </AnimReveal>
+      </section>
+
+      <section id="work-experience" className="mt-10">
+        <AnimReveal>
+          <h2 className="text-2xl font-semibold mb-4">Work Experience</h2>
+
+          <div className="flex flex-col">
+            {personal_info.work_experience.map((item, index) => (
+              <a
+                key={index}
+                href={item.company_web}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start p-3 hover:bg-default-50 rounded-lg cursor-pointer group"
+              >
+                <div className="flex gap-3 flex-1">
+                  <Avatar src={item.company_logo} />
+
+                  <div>
+                    <p className="text-sm font-medium flex items-center">
+                      {item.company_name}
+                      <Icon
+                        icon={icons.chevronRight}
+                        className="
+                    ml-1 text-xl
+                    opacity-0 -translate-x-1
+                    group-hover:opacity-100
+                    group-hover:translate-x-0
+                    transition-all duration-300 ease-out
+                  "
+                      />
+                    </p>
+
+                    <p className="text-xs mt-1 text-secondary-foreground">
+                      {item.position}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex flex-col items-end text-right">
+                  <p className="text-sm text-secondary-foreground">
+                    {item.location}
+                  </p>
+                  <p className="text-sm text-secondary-foreground">
+                    {replaceTokensWithLinks(item.time)}
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </AnimReveal>
       </section>
 
       <section id="projects" className="mt-10">
@@ -232,112 +340,6 @@ export default function Home() {
             ))}
           </ShowAll>
         </div>
-      </section>
-
-      <section id="skills" className="mt-20">
-        <AnimReveal>
-          <h2 className="text-2xl font-semibold mb-4">Skills </h2>
-          <div className="flex flex-wrap gap-2">
-            {personal_info.skills.map((item, index) => (
-              <Chip
-                key={index}
-                classNames={{
-                  base: "cursor-pointer bg-white text-black text-sm transition-colors rounded-lg ",
-                  content: "flex flex-row items-center gap-1 p-0 px-1",
-                }}
-              >
-                <Icon icon={item.icon} className="text-base" />
-                {item.name}
-              </Chip>
-            ))}
-          </div>
-        </AnimReveal>
-      </section>
-
-      <section id="education" className="mt-10">
-        <AnimReveal>
-          <h2 className="text-2xl font-semibold mb-4">Education </h2>
-          <div className="flex flex-col">
-            {personal_info.education.map((item, index) => (
-              <a
-                key={index}
-                href={item.institution_web}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex p-3 justify-between hover:bg-default-50 rounded-lg cursor-pointer group"
-              >
-                <div className="flex gap-3">
-                  <Avatar src={item.institution_logo} size="md" />
-                  <div>
-                    <p className="text-sm font-medium flex">
-                      {item.institution_name}
-                      <Icon
-                        icon={icons.chevronRight}
-                        className="text-xl opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-out"
-                      />
-                    </p>
-                    <p className="text-xs mt-1 text-secondary-foreground">
-                      {item.course}
-                    </p>
-                    <p className="text-xs mt-1 text-secondary-foreground"></p>
-                  </div>
-                </div>
-                <p className="text-sm text-secondary-foreground">{item.time}</p>
-              </a>
-            ))}
-          </div>
-        </AnimReveal>
-      </section>
-
-      <section id="work-experience" className="mt-10">
-        <AnimReveal>
-          <h2 className="text-2xl font-semibold mb-4">Work Experience</h2>
-
-          <div className="flex flex-col">
-            {personal_info.work_experience.map((item, index) => (
-              <a
-                key={index}
-                href={item.company_web}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-start p-3 hover:bg-default-50 rounded-lg cursor-pointer group"
-              >
-                <div className="flex gap-3 flex-1">
-                  <Avatar src={item.company_logo} />
-
-                  <div>
-                    <p className="text-sm font-medium flex items-center">
-                      {item.company_name}
-                      <Icon
-                        icon={icons.chevronRight}
-                        className="
-                    ml-1 text-xl
-                    opacity-0 -translate-x-1
-                    group-hover:opacity-100
-                    group-hover:translate-x-0
-                    transition-all duration-300 ease-out
-                  "
-                      />
-                    </p>
-
-                    <p className="text-xs mt-1 text-secondary-foreground">
-                      {item.position}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex flex-col items-end text-right">
-                  <p className="text-sm text-secondary-foreground">
-                    {item.location}
-                  </p>
-                  <p className="text-sm text-secondary-foreground">
-                    {replaceTokensWithLinks(item.time)}
-                  </p>
-                </div>
-              </a>
-            ))}
-          </div>
-        </AnimReveal>
       </section>
 
       <section id="certifications" className="mt-10">
