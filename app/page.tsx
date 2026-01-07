@@ -339,6 +339,72 @@ export default function Home() {
           </div>
         </AnimReveal>
       </section>
+
+      <section id="certifications" className="mt-10">
+        <CustomHeader
+          badgeTitle="Learning Milestones"
+          title="Certifications Earned "
+          className="mb-10 mt-16"
+        />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <ShowAll initialCount={3}>
+            {personal_info.achievements.map((item, index) => (
+              <Card
+                key={index}
+                className="border border-default-100 rounded-xl flex flex-col overflow-hidden"
+              >
+                <div className="w-full aspect-[3/2] overflow-hidden rounded-lg">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover hover:scale-102 transition-transform duration-200 object-top"
+                    radius="none"
+                    removeWrapper
+                  />
+                </div>
+
+                {/* Content */}
+                <CardBody className="flex flex-col items-start p-3 flex-grow">
+                  <p className="text-base font-bold text-white">{item.title}</p>
+
+                  <p className="text-xs font-light text-white mt-1.5">
+                    {item.date}
+                  </p>
+
+                  <p className="text-xs font-light text-secondary-foreground mt-1.5 flex-grow">
+                    {item.description}
+                  </p>
+
+                  <div className="flex gap-2 mt-4 flex-wrap">
+                    {item.place?.map((place, idx) => (
+                      <Chip
+                        key={idx}
+                        as="a"
+                        href={place.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        classNames={{
+                          base: "cursor-pointer bg-white text-black rounded-lg",
+                          content: "flex items-center  gap-1 px-2 py-1",
+                        }}
+                      >
+                        <Image
+                          src={place.icon}
+                          alt={place.place}
+                          className="w-4 h-4"
+                          radius="none"
+                        />
+                        <span className="text-xs">{place.place}</span>
+                      </Chip>
+                    ))}
+                  </div>
+                </CardBody>
+              </Card>
+            ))}
+          </ShowAll>
+        </div>
+      </section>
     </>
   );
 }

@@ -49,7 +49,17 @@ type AchievementsItem = {
   place: AchievementPlace[];
   date: string;
 };
-
+type CertificationFrom = {
+  icon: string;
+  name: string;
+  url?: string;
+};
+type CertificationItem = {
+  title: string;
+  image: string;
+  from: CertificationFrom[];
+  date: string;
+};
 export const personal_info: {
   first_name: string;
   last_name: string;
@@ -65,6 +75,7 @@ export const personal_info: {
   education: EducationItem[];
   work_experience: WorkExperienceItem[];
   achievements: AchievementsItem[];
+  certifications: CertificationItem[];
 } = {
   first_name: "Devan",
   last_name: "Bhensdadiya",
@@ -308,7 +319,6 @@ export const personal_info: {
       time: "Aug 2025 - [[Present]]",
     },
   ],
-
   achievements: [
     {
       title: "Finalist, Code Gennie Hackathon",
@@ -333,6 +343,32 @@ export const personal_info: {
         { icon: "/achievements/icons/gov-ind.png", place: "IP India", url: "/documents/colorograph-ipr.pdf" }
       ],
       date: "March 2023",
+    },
+  ],
+  certifications: [
+    {
+      title: "AWS Academy Graduate - Data Engineering",
+      image: "/certifications/aws.png",
+      from: [{ icon: "/certifications/icons/aws.png", name: "AWS Academy", url: "https://www.credly.com/badges/2c487669-aa17-4683-a43b-6f6733754059"}],
+      date: "March 2024",
+    },
+    {
+      title: "Technology Job Simulation",
+      image: "/certifications/deloitte.png",
+      from: [{ icon: "/certifications/icons/deloitte.png", name: "Deloitte Australia", url: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/udmxiyHeqYQLkTPvf_9PBTqmSxAf6zZTseP_xQRrwzKfEnaXtpRf4_1751271974616_completion_certificate.pdf"}],
+      date: "June 2025",
+    },
+    {
+      title: "Database Foundation",
+      image: "/certifications/oracle.png",
+      from: [{ icon: "/certifications/icons/oracle.png", name: "Oracle Academy", url: "/certifications/oracle.png"}],
+      date: "March 2024",
+    },
+    {
+      title: "Ethical Hacking",
+      image: "/certifications/cisco.png",
+      from: [{ icon: "/certifications/icons/ethical-hacking.png", name: "Cyber Security", url: "/certifications/ethical-hacking.png"}],
+      date: "March 2024",
     },
   ],
 };
