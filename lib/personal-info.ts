@@ -347,7 +347,7 @@ export const personal_info: {
   ],
   certifications: [
     {
-      title: "AWS Academy Graduate - Data Engineering",
+      title: "AWS Data Engineering",
       image: "/certifications/aws.png",
       from: [{ icon: "/certifications/icons/aws.png", name: "AWS Academy", url: "https://www.credly.com/badges/2c487669-aa17-4683-a43b-6f6733754059"}],
       date: "March 2024",
@@ -362,13 +362,19 @@ export const personal_info: {
       title: "Database Foundation",
       image: "/certifications/oracle.png",
       from: [{ icon: "/certifications/icons/oracle.png", name: "Oracle Academy", url: "/certifications/oracle.png"}],
-      date: "March 2024",
+      date: "March 2023",
     },
     {
       title: "Ethical Hacking",
       image: "/certifications/cisco.png",
-      from: [{ icon: "/certifications/icons/ethical-hacking.png", name: "Cyber Security", url: "/certifications/ethical-hacking.png"}],
-      date: "March 2024",
+      from: [{ icon: "/certifications/icons/cisco.png", name: "Cisco", url: "https://www.credly.com/badges/6efb8c68-103c-44f6-a735-340c69160088"}],
+      date: "March 2025",
+    },
+    {
+      title: "Fundamentals of Linux and Data Analytics",
+      image: "/certifications/vois.png",
+      from: [{ icon: "/certifications/icons/vois.png", name: "VOIS", url: "/certifications/vois.png"}],
+      date: "November 2021",
     },
   ],
 };

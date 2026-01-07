@@ -349,7 +349,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <ShowAll initialCount={3}>
-            {personal_info.achievements.map((item, index) => (
+            {personal_info.certifications.map((item, index) => (
               <Card
                 key={index}
                 className="border border-default-100 rounded-xl flex flex-col overflow-hidden"
@@ -372,16 +372,12 @@ export default function Home() {
                     {item.date}
                   </p>
 
-                  <p className="text-xs font-light text-secondary-foreground mt-1.5 flex-grow">
-                    {item.description}
-                  </p>
-
                   <div className="flex gap-2 mt-4 flex-wrap">
-                    {item.place?.map((place, idx) => (
+                    {item.from?.map((from, idx) => (
                       <Chip
                         key={idx}
                         as="a"
-                        href={place.url}
+                        href={from.url}
                         target="_blank"
                         rel="noopener noreferrer"
                         classNames={{
@@ -390,12 +386,12 @@ export default function Home() {
                         }}
                       >
                         <Image
-                          src={place.icon}
-                          alt={place.place}
+                          src={from.icon}
+                          alt={from.name}
                           className="w-4 h-4"
                           radius="none"
                         />
-                        <span className="text-xs">{place.place}</span>
+                        <span className="text-xs">{from.name}</span>
                       </Chip>
                     ))}
                   </div>
