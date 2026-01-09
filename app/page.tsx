@@ -11,7 +11,6 @@ import { project_info } from "@/lib/projects-info";
 import { Chip } from "@heroui/chip";
 import { Avatar } from "@heroui/avatar";
 import { icons } from "@/config/icons";
-import { Divider } from "@heroui/divider";
 
 export default function Home() {
   return (
