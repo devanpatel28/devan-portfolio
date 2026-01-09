@@ -15,25 +15,28 @@ import { icons } from "@/config/icons";
 export default function Home() {
   return (
     <>
-      <section id="hero" className="flex flex-col items-center gap-4 mt-20">
-        <div className="flex w-full max-w-3xl items-center justify-between gap-4">
-          <div>
+      <section
+        id="hero"
+        className="flex flex-col items-center gap-4 mt-10 md:mt-20 px-4"
+      >
+        <div className="flex flex-col md:flex-row w-full max-w-3xl items-center justify-between gap-4 md:gap-6">
+          <div className="order-2 md:order-1 w-full md:w-auto">
             <AnimReveal className="flex flex-col">
-              <div className="text-5xl font-medium">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-medium text-center md:text-left">
                 {personal_info.first_name + " " + personal_info.last_name}
               </div>
-              <div className="text-base ml-2 font-light mt-2 text-secondary-foreground">
+              <div className="text-sm sm:text-base ml-0 md:ml-2 font-light mt-2 text-secondary-foreground text-center md:text-left">
                 {personal_info.occupation} at{" "}
                 <Linker href={personal_info.current_company_url}>
                   {" "}
                   {personal_info.current_company}
                 </Linker>
               </div>
-              <div className="text-base ml-2 font-light text-secondary-foreground">
+              <div className="text-sm sm:text-base ml-0 md:ml-2 font-light text-secondary-foreground text-center md:text-left">
                 {personal_info.degree}
               </div>
 
-              <div className="flex gap-2 mt-4">
+              <div className="flex flex-wrap gap-2 mt-4 justify-center md:justify-start">
                 {personal_info.social_links.map((link) => (
                   <a
                     key={link.name}
@@ -42,7 +45,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="transition-transform duration-200 hover:scale-105"
                   >
-                    <Card className="w-fit rounded-full ">
+                    <Card className="w-fit rounded-full">
                       <CardBody className="flex flex-row gap-1 py-2 px-4 items-center">
                         <Icon icon={link.icon} className="text-white text-xl" />
                         <p className="text-white text-xs font-light">
@@ -55,13 +58,11 @@ export default function Home() {
               </div>
             </AnimReveal>
           </div>
-          <AnimReveal>
-            <Image
+          <AnimReveal className="order-1 md:order-2">
+            <Avatar
               src={personal_info.profile_image}
               alt="Profile Image"
-              width={200}
-              height={200}
-              className="rounded-full"
+              className="rounded-full w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 "
             />
           </AnimReveal>
         </div>
@@ -83,33 +84,33 @@ export default function Home() {
 
       <section id="latest-updates" className="mt-10">
         <AnimReveal>
-        <h2 className="text-2xl font-semibold mb-4">Latest Updates</h2>
+          <h2 className="text-2xl font-semibold mb-4">Latest Updates</h2>
 
-        <ShowAll>
-          {personal_info.latest_updated.map((item, index) => (
-            <div
-              key={index}
-              className="flex gap-2 p-3 hover:bg-default-50 rounded-lg cursor-default"
-            >
-              <div className="text-sm font-light text-secondary-foreground">
-                {item.date}
-              </div>
+          <ShowAll>
+            {personal_info.latest_updated.map((item, index) => (
+              <div
+                key={index}
+                className="flex gap-2 p-3 hover:bg-default-50 rounded-lg cursor-default"
+              >
+                <div className="text-sm font-light text-secondary-foreground">
+                  {item.date}
+                </div>
 
-              <div>
-                <p className="text-sm font-medium">
-                  {replaceTokensWithLinks(item.title, item.tokens)}
-                </p>
-                <p className="text-xs mt-1 text-secondary-foreground">
-                  {replaceTokensWithLinks(item.description, item.tokens)}
-                </p>
+                <div>
+                  <p className="text-sm font-medium">
+                    {replaceTokensWithLinks(item.title, item.tokens)}
+                  </p>
+                  <p className="text-xs mt-1 text-secondary-foreground">
+                    {replaceTokensWithLinks(item.description, item.tokens)}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
-        </ShowAll>
-      </AnimReveal>
+            ))}
+          </ShowAll>
+        </AnimReveal>
       </section>
 
-       <section id="skills" className="mt-20">
+      <section id="skills" className="mt-20">
         <AnimReveal>
           <h2 className="text-2xl font-semibold mb-4">Skills </h2>
           <div className="flex flex-wrap gap-2">
@@ -248,7 +249,7 @@ export default function Home() {
                   <p className="text-xs font-light text-secondary-foreground mt-1.5">
                     {item.description}
                   </p>
-          
+
                   <div className="flex gap-2 mt-2">
                     {item.links?.map((link, idx) => (
                       <Chip
@@ -267,7 +268,6 @@ export default function Home() {
                       </Chip>
                     ))}
                   </div>
-                  
                 </CardBody>
               </Card>
             ))}
