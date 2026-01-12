@@ -22,8 +22,9 @@ const config = {
           foreground:"#a3a3a3",
         },
         link:"#ffffff"
-      
-        
+      },
+      fontSize: {
+        exs: '10px',
       }
     },
   },

@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <section
         id="hero"
-        className="flex flex-col items-center gap-4 mt-10 md:mt-20 px-4"
+        className="flex flex-col items-center gap-4 mt-10 md:mt-20"
       >
         <div className="flex flex-col md:flex-row w-full max-w-3xl items-center justify-between gap-4 md:gap-6">
           <div className="order-2 md:order-1 w-full md:w-auto">
@@ -74,7 +74,7 @@ export default function Home() {
           {personal_info.about.map((item, index) => (
             <p
               key={index}
-              className="mb-2 text-secondary-foreground font-light text-sm"
+              className="mb-2 text-secondary-foreground font-light md:text-sm text-xs"
             >
               {replaceTokensWithLinks(item.text, item.tokens as any)}
             </p>
@@ -90,17 +90,17 @@ export default function Home() {
             {personal_info.latest_updated.map((item, index) => (
               <div
                 key={index}
-                className="flex gap-2 p-3 hover:bg-default-50 rounded-lg cursor-default"
+                className="block md:flex gap-2 p-3 px-0 md:px-3 hover:bg-default-50 rounded-lg cursor-default"
               >
                 <div className="text-sm font-light text-secondary-foreground">
                   {item.date}
                 </div>
 
                 <div>
-                  <p className="text-sm font-medium">
+                  <p className="text-xs md:text-sm font-medium">
                     {replaceTokensWithLinks(item.title, item.tokens)}
                   </p>
-                  <p className="text-xs mt-1 text-secondary-foreground">
+                  <p className="text-exs md:text-xs mt-1 text-secondary-foreground">
                     {replaceTokensWithLinks(item.description, item.tokens)}
                   </p>
                 </div>
@@ -118,11 +118,11 @@ export default function Home() {
               <Chip
                 key={index}
                 classNames={{
-                  base: "cursor-pointer bg-white text-black text-sm transition-colors rounded-lg ",
+                  base: "cursor-pointer bg-white text-black text-xs md:text-sm transition-colors rounded-lg ",
                   content: "flex flex-row items-center gap-1 p-0 px-1",
                 }}
               >
-                <Icon icon={item.icon} className="text-base" />
+                <Icon icon={item.icon} className="text-sm md:text-base" />
                 {item.name}
               </Chip>
             ))}
@@ -140,25 +140,35 @@ export default function Home() {
                 href={item.institution_web}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex p-3 justify-between hover:bg-default-50 rounded-lg cursor-pointer group"
+                className="flex p-3 px-0 md:px-3 justify-between hover:bg-default-50 rounded-lg cursor-pointer group"
               >
-                <div className="flex gap-3">
-                  <Avatar src={item.institution_logo} size="md" />
+                <div className="flex gap-3 items-center">
+                  <Avatar
+                    src={item.institution_logo}
+                    className="w-10 h-10 md:w-12 md:h-12 aspect-square flex-shrink-0"
+                  />
+
                   <div>
-                    <p className="text-sm font-medium flex">
+                    <p className="text-xs md:text-sm items-center font-medium flex ">
                       {item.institution_name}
                       <Icon
                         icon={icons.chevronRight}
-                        className="text-xl opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-out"
+                        className="md:block hidden text-xl opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-out"
                       />
+                      <span className="text-exs ml-2 md:hidden text-secondary-foreground">
+                        ({item.time})
+                      </span>
                     </p>
-                    <p className="text-xs mt-1 text-secondary-foreground">
+                   
+                    <p className="text-exs md:text-xs md:mt-1 text-secondary-foreground">
                       {item.course}
                     </p>
                     <p className="text-xs mt-1 text-secondary-foreground"></p>
                   </div>
                 </div>
-                <p className="text-sm text-secondary-foreground">{item.time}</p>
+                <p className="text-sm hidden md:block text-secondary-foreground">
+                  {item.time}
+                </p>
               </a>
             ))}
           </div>
@@ -176,17 +186,21 @@ export default function Home() {
                 href={item.company_web}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start p-3 hover:bg-default-50 rounded-lg cursor-pointer group"
+                className="flex items-start p-3 px-0 md:px-3 hover:bg-default-50 rounded-lg cursor-pointer group"
               >
-                <div className="flex gap-3 flex-1">
-                  <Avatar src={item.company_logo} />
+                <div className="flex items-center gap-3 flex-1">
+                  <Avatar
+                    src={item.company_logo}
+                    className="w-10 h-10 md:w-12 md:h-12 aspect-square flex-shrink-0"
+                  />
 
                   <div>
-                    <p className="text-sm font-medium flex items-center">
+                    <p className="text-xs md:text-sm font-medium flex items-center">
                       {item.company_name}
                       <Icon
                         icon={icons.chevronRight}
                         className="
+                        hidden md:block
                     ml-1 text-xl
                     opacity-0 -translate-x-1
                     group-hover:opacity-100
@@ -194,15 +208,18 @@ export default function Home() {
                     transition-all duration-300 ease-out
                   "
                       />
+                     <span className="md:hidden ml-2 text-secondary-foreground text-exs">
+                      ({replaceTokensWithLinks(item.time)})
+                    </span>
                     </p>
-
-                    <p className="text-xs mt-1 text-secondary-foreground">
+                   
+                    <p className="text-exs md:text-xs md:mt-1 text-secondary-foreground">
                       {item.position}
                     </p>
                   </div>
                 </div>
 
-                <div className="flex flex-col items-end text-right">
+                <div className="hidden md:flex flex-col items-end text-right">
                   <p className="text-sm text-secondary-foreground">
                     {item.location}
                   </p>
@@ -243,10 +260,10 @@ export default function Home() {
                     {item.project_name}
                   </p>
 
-                  <p className="text-xs font-light text-white mt-1.5">
+                  <p className="text-xs font-light text-white mt-1">
                     {item.time}
                   </p>
-                  <p className="text-xs font-light text-secondary-foreground mt-1.5">
+                  <p className="text-xs font-light text-secondary-foreground mt-1">
                     {item.description}
                   </p>
 
@@ -303,15 +320,15 @@ export default function Home() {
                 <CardBody className="flex flex-col items-start p-3 flex-grow">
                   <p className="text-base font-bold text-white">{item.title}</p>
 
-                  <p className="text-xs font-light text-white mt-1.5">
+                  <p className="text-xs font-light text-white mt-1">
                     {item.date}
                   </p>
 
-                  <p className="text-xs font-light text-secondary-foreground mt-1.5 flex-grow">
+                  <p className="text-xs font-light text-secondary-foreground mt-1 flex-grow">
                     {item.description}
                   </p>
 
-                  <div className="flex gap-2 mt-4 flex-wrap">
+                  <div className="flex gap-2 mt-2 flex-wrap">
                     {item.place?.map((place, idx) => (
                       <Chip
                         key={idx}
@@ -369,11 +386,11 @@ export default function Home() {
                 <CardBody className="flex flex-col items-start p-3 flex-grow">
                   <p className="text-base font-bold text-white">{item.title}</p>
 
-                  <p className="text-xs font-light text-white mt-1.5">
+                  <p className="text-xs font-light text-white mt-1">
                     {item.date}
                   </p>
 
-                  <div className="flex gap-2 mt-4 flex-wrap">
+                  <div className="flex gap-2 mt-2 flex-wrap">
                     {item.from?.map((from, idx) => (
                       <Chip
                         key={idx}

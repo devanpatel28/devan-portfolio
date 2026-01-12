@@ -13,11 +13,11 @@ export default function CustomHeader({
 }: CustomHeaderProps) {
   return (
     <div className={`flex flex-col items-center justify-center text-center ${className}`}>
-      <Chip className="bg-white text-black rounded-lg mb-2">
+      <Chip className="text-xs md:text-sm bg-white text-black rounded-lg mb-2">
         {badgeTitle}
       </Chip>
 
-      <h1 className="text-4xl font-semibold tracking-tight">
+      <h1 className="text-2xl md:text-4xl font-semibold tracking-tight">
         {title}
       </h1>
     </div>

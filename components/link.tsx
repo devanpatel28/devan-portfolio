@@ -31,7 +31,7 @@ const Linker = ({ href, children, className }: Props) => {
         underline
         decoration-secondary-foreground
         decoration-1
-        underline-offset-4
+        md:underline-offset-4
         hover:decoration-primary
         transition-all duration-200
         ${className}
