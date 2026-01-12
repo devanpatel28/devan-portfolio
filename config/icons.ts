@@ -9,6 +9,7 @@ export const icons = {
     github:"mdi:github",
     thread:"mingcute:threads-line",
     mail:"fluent:mail-28-regular",
+    drive:"logos:google-drive",
     chevronDown:"mdi:chevron-down",
     chevronUp:"mdi:chevron-up",
     chevronLeft:"mdi:chevron-left",
